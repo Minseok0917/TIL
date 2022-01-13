@@ -16,6 +16,7 @@
   "devDependencies": {
     "vuepress": "^1.5.3",
     "vuepress-plugin-clean-urls": "^1.1.2",
-    "vuepress-plugin-container": "^2.1.5"
+    "vuepress-plugin-container": "^2.1.5",
+    "vuepress-plugin-smooth-scroll": "^0.0.3"
   }
 }
