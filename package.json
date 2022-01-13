@@ -18,5 +18,8 @@
     "vuepress-plugin-clean-urls": "^1.1.2",
     "vuepress-plugin-container": "^2.1.5",
     "vuepress-plugin-smooth-scroll": "^0.0.3"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^1.4.3"
   }
 }
