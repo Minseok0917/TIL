@@ -7,7 +7,18 @@
 	export default{
 		props:['items'],
 		created(){
-			console.log(this.$props.items);
+			const items = this.$props.items;
+
+			const a = items.map( ({title,children}) =>{
+				return {
+					title,
+					children:children.map(({title,children})=> ({
+						title,
+						children
+					}))
+				}
+			} );
+			console.log(a);
 		}
 	}
 </script>

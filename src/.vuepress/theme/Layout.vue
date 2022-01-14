@@ -1,30 +1,27 @@
 <template>
 	<div>
-		<TheHeader />
-		<Menu :items="items" />
-		<div class="theme-default-content content__default">
-			<Content />
-		</div>
+		<TheHeader :fullPath="fullPath" />		
+		<template>
+			<Home v-if="fullPath == '/'" />
+			<Blog v-else :key="fullPath" />
+		</template>
 		<TheFooter/>
 	</div>
 </template>
 <script>
 	import Vue from 'vue';
-	import VueCompositionAPI ,{ defineComponent }  from '@vue/composition-api';
-	import { resolveSidebarItems } from '../utils';
+	import VueCompositionAPI ,{ defineComponent, defineAsyncComponent }  from '@vue/composition-api';
 	Vue.use(VueCompositionAPI);
 
 	export default defineComponent({
-		data:()=>({
-			items:[]
-		}),
-		created(){
-			this.items = resolveSidebarItems(
-					this.$page,
-					this.$page.regularPath,
-					this.$site,
-					this.$localePath
-				);
+		components:{
+			Home : defineAsyncComponent(()=> import('../views/Home.vue') ),
+			Blog : defineAsyncComponent(()=> import('../views/Blog.vue') ),
+		},
+		computed:{
+			fullPath:function(){
+				return this.$route.fullPath;
+			}
 		}
 	})
 </script>
