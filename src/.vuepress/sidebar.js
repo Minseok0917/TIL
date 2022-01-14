@@ -18,6 +18,7 @@ function fetchDepthFiles(folders){
 			const newFolders = fetchFiles(filePath,path);
 			return {
 				title,
+				path,
 				children:fetchDepthFiles(newFolders)
 			};
 		}else{

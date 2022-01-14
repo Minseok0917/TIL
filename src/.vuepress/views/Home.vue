@@ -2,8 +2,7 @@
 <template>
 	<div>
 		<main>
-			<router-link to="/config">config</router-link>
-			뭐라고 쓰지
+			<!-- <router-link to="/config">config</router-link> -->
 		</main>
 		<section>
 			<div class="theme-default-content content__default">

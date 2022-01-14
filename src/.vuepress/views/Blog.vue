@@ -10,13 +10,17 @@
 <script>
 	import { defineComponent } from '@vue/composition-api';
 	import { resolveSidebarItems } from '../utils';
-	
+
 	export default defineComponent({
 		props:['fullPath'],
 		data:()=>({
 			items:[],
 		}),
 		created(){
+			console.log(this.$page);
+			console.log(this.$page.regularPath);
+			console.log(this.$site);
+			console.log(this.$localePath);
 			this.items = resolveSidebarItems(
 				this.$page,
 				this.$page.regularPath,
