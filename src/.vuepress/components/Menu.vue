@@ -5,7 +5,8 @@
 				<router-link :to="item.path">{{item.title}}</router-link>
 				<ul>
 					<li v-for="childItem in item.children" :key="childItem.title">
-						{{childItem.title}}
+						dsadas
+						<!-- {{childItem.title}} -->
 					</li>
 				</ul>
 			</li>

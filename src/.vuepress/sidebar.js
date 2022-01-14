@@ -19,12 +19,14 @@ function fetchDepthFiles(folders){
 			return {
 				title,
 				path,
+				collapsable: false,
 				children:fetchDepthFiles(newFolders)
 			};
 		}else{
 			return {
 				title,
-			};
+				path: title === 'README.md' ? path.replace(title,'') : title.replace('.md','/'),
+			}
 		}
 	});
 }
