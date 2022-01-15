@@ -7,7 +7,7 @@ function fetchFiles(folderPath,parentName=''){
 	return fs.readdirSync(folderPath,{ withFileTypes:true }).map( file =>({
 		type: file.isDirectory() ? 'folder' : 'file',
 		title:`${file.name}`,
-		path:`${parentName}/${file.name}`,
+		path:`${parentName}/${file.name === 'README.md' ? '' : file.name.replace('.md','') }`,
 		filePath:`${folderPath}/${file.name}`,
 	}));
 }
@@ -23,9 +23,10 @@ function fetchDepthFiles(folders){
 				children:fetchDepthFiles(newFolders)
 			};
 		}else{
+			console.log(path);
 			return {
 				title,
-				path: title === 'README.md' ? path.replace(title,'') : title.replace('.md','/'),
+				path,
 			}
 		}
 	});
