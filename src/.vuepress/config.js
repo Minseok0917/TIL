@@ -1,4 +1,5 @@
 const sidebar = require('./sidebar.js');
+const path = require('path');
 const { description } = require('../../package')
 
 
@@ -52,5 +53,12 @@ module.exports = {
         before: info => `<details class="custom-block details">${info ? `<summary>${info}</summary>` : ''}\n`,
         after: () => '</details>\n'
       }],
-  ]
+  ],
+  configureWebpack:{
+    resolve:{
+      alias:{
+        '@image': path.join(__dirname,'./public')
+      }
+    }
+  }
 }

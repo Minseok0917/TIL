@@ -1,7 +1,15 @@
 <template>
 	<header>
 		<div class="fixed" ref="$header">
-			{{fullPath}}
+			<div class="container">
+				<a href="/">HOME</a>
+				<div class="image-box">
+					<a href="https://github.com/Minseok0917" target="_blank">
+						<img :src="require('@image/template/github.png')" alt="github">
+					</a>
+				</div>
+				
+			</div>
 		</div>
 	</header>
 </template>
@@ -28,22 +36,28 @@
 </script>
 <style>
 	html{
-		scroll-padding-top: 65px;
+		scroll-padding-top: 50px;
 	}
 </style>
 <style scoped>
-	header{
-		height: 65px;
+	.image-box img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		vertical-align: middle;
 	}
+
+	header{ height: 50px; }
 	header>.fixed{
 		position: fixed;
 		z-index: 9999;
 		width: 100%;
 		height: inherit;
-		background: #383838;
-		opacity: 0.5;
+		background: #fff;
+		box-shadow: 0 1px 3px #eaeaea;
 	}
-		
+	header .container{ width: 1440px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: flex-end;  gap: 1rem;}
+	header .container .image-box{ width: 25px; height: 25px; }
 	header.show{
 		animation: show_animation 0.5s linear both;
 	}

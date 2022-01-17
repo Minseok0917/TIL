@@ -23,7 +23,6 @@ function fetchDepthFiles(folders){
 				children:fetchDepthFiles(newFolders)
 			};
 		}else{
-			console.log(path);
 			return {
 				title,
 				path,
