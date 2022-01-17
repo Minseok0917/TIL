@@ -1,6 +1,6 @@
 <template>
-	<header ref="$header" >
-		<div class="fixed">
+	<header>
+		<div class="fixed" ref="$header">
 			{{fullPath}}
 		</div>
 	</header>
@@ -18,6 +18,7 @@
 			window.addEventListener('wheel',(e)=>{
 				if( this.fullPath !== '/' ){
 					const y = e.deltaY > 0 ? -100 : 0;
+					console.log(y);
 					this.$refs.$header.style.transition = '0.5s';
 					this.$refs.$header.style.transform = `translateY(${y}%)`
 				}
@@ -25,6 +26,11 @@
 		}
 	});
 </script>
+<style>
+	html{
+		scroll-padding-top: 65px;
+	}
+</style>
 <style scoped>
 	header{
 		height: 65px;
