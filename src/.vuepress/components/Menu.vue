@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="menu">
 		<ul>
 			<li v-for="item in items" :key="item.path">
 				<router-link :to="item.path">{{item.title}}</router-link>
@@ -17,8 +17,6 @@
 		props:['items'],
 		created(){
 			const items = this.$props.items;
-			console.log(items);
-
 			const a = items.map( ({title,children}) =>{
 				return {
 					title,
@@ -31,3 +29,6 @@
 		}
 	}
 </script>
+<style>
+	.menu{ position: fixed; left: 0; }
+</style>

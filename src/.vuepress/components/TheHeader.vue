@@ -37,9 +37,11 @@
 	}
 	header>.fixed{
 		position: fixed;
+		z-index: 9999;
 		width: 100%;
 		height: inherit;
 		background: #383838;
+		opacity: 0.5;
 	}
 		
 	header.show{

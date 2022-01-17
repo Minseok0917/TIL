@@ -1,10 +1,12 @@
 <template>
 	<div>
-		BLOG
-		<Menu :items="items" />
-		<div class="theme-default-content content__default">
-			<Content />
-		</div>
+		<section>
+			<Menu :items="menuItems" />
+			<Anchor :items="anchorItems" />
+			<div class="theme-default-content content__default">
+				<Content />
+			</div>
+		</section>
 	</div>
 </template>
 <script>
@@ -14,22 +16,17 @@
 	export default defineComponent({
 		props:['fullPath'],
 		data:()=>({
-			items:[],
+			menuItems:[],
+			anchorItems:[],
 		}),
 		created(){
-			console.log(this.$page);
-			console.log(this.$page.regularPath);
-			console.log(this.$site);
-			console.log(this.$localePath);
-			this.items = resolveSidebarItems(
+			this.menuItems = resolveSidebarItems(
 				this.$page,
 				this.$page.regularPath,
 				this.$site,
 				this.$localePath
-				);
+			);
+			this.anchorItems = this.$page.headers;
 		},
 	});
 </script>
-<style scoped>
-
-</style>

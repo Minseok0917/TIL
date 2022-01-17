@@ -3,7 +3,7 @@
 		<TheHeader :fullPath="fullPath" />		
 		<template>
 			<Home v-if="fullPath == '/'" />
-			<Blog v-else :key="fullPath" />
+			<Blog v-else :key="path" />
 		</template>
 		<TheFooter/>
 	</div>
@@ -19,10 +19,12 @@
 			Blog : defineAsyncComponent(()=> import('../views/Blog.vue') ),
 		},
 		computed:{
+			path:function(){
+				return this.$route.path;
+			},
 			fullPath:function(){
 				return this.$route.fullPath;
 			}
 		}
 	})
 </script>
-<style lang="stylus" src="../styles/index.styl"></style>
