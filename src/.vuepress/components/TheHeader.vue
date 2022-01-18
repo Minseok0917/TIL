@@ -2,7 +2,7 @@
 	<header>
 		<div class="fixed" ref="$header">
 			<div class="container">
-				<a href="/">HOME</a>
+				<router-link to="/">HOME</router-link>
 				<div class="image-box">
 					<a href="https://github.com/Minseok0917" target="_blank">
 						<img :src="require('@image/template/github.png')" alt="github">
@@ -19,16 +19,19 @@
 		props:['fullPath'],
 		data:function(){
 			return{
-				$header:''
+				$header:'',
+				box:'100px'
 			};
 		},
 		mounted(){
+			const $html = document.children[0];
 			window.addEventListener('wheel',(e)=>{
 				if( this.fullPath !== '/' ){
 					const y = e.deltaY > 0 ? -100 : 0;
-					console.log(y);
 					this.$refs.$header.style.transition = '0.5s';
 					this.$refs.$header.style.transform = `translateY(${y}%)`
+					$html.style.scrollPaddingTop = y == 0 ? '65px' : '15px' ;
+				}else{
 				}
 			});
 		}
@@ -36,7 +39,7 @@
 </script>
 <style>
 	html{
-		scroll-padding-top: 50px;
+		scroll-padding-top: 65px;
 	}
 </style>
 <style scoped>

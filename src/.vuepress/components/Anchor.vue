@@ -21,7 +21,6 @@
 <style scoped>
 	.anchor{
 		position: fixed;
-		right: 0;
 	}
 
 

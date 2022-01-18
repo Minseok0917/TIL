@@ -30,5 +30,5 @@
 	}
 </script>
 <style>
-	.menu{ position: fixed; left: 0; }
+	.menu{ position: fixed; }
 </style>
