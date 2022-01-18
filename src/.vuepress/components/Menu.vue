@@ -31,4 +31,6 @@
 </script>
 <style>
 	.menu{ position: fixed; }
+	.menu li{ list-style: none; }
+	.menu li a{ color: #333; }
 </style>

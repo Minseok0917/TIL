@@ -41,8 +41,8 @@
 	section>.menu-container,
 	section>.anchor-container{ flex: 1; }
 	.theme-default-content{
-		max-width: 1140px !important;
-		flex: 4;
+		max-width: 940px !important;
+		flex: 3;
 	}
 	.menu-container{
 		box-sizing: border-box;
