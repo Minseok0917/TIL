@@ -15,12 +15,27 @@
 				const $element = document.getElementById(this.$route.hash.slice(1));
 				$element.scrollIntoView();
 			}
+			console.log(this.items);
+			window.addEventListener('scroll',function(e){
+				// console.l
+			})
 		}
 	}
 </script>
 <style scoped>
 	.anchor{
 		position: fixed;
+		border-left: 3px solid #e0e0e0;
+	}
+	.anchor li{
+		list-style: none;
+	}
+	.anchor li a{
+		color: #383838;
+		opacity: 0.5;
+	}
+	.anchor li a.active{
+		color: red;
 	}
 
 
