@@ -30,8 +30,8 @@
 					const y = e.deltaY > 0 ? -100 : 0;
 					this.$refs.$header.style.transition = '0.5s';
 					this.$refs.$header.style.transform = `translateY(${y}%)`
+					this.$refs.$header.parentNode.classList[ y < 0 ? 'add' : 'remove']('active');
 					$html.style.scrollPaddingTop = y == 0 ? '65px' : '15px' ;
-				}else{
 				}
 			});
 		}

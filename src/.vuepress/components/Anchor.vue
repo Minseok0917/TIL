@@ -2,7 +2,7 @@
 	<div class="anchor">
 		<ul>
 			<li v-for="item in items" :key="item.slug" :class="'floor'+item.level">
-				<a :href="'#'+item.slug">{{item.title}}</a>
+				<router-link :class="{ 'active' : currentScrollSlug === item.slug }" @click="clickHandle(item.slug)" :to="'#'+item.slug">{{item.title}}</router-link>
 			</li>
 		</ul>
 	</div>
@@ -10,15 +10,38 @@
 <script>
 	export default{
 		props:['items'],
+		data:()=>({
+			currentScrollSlug:''
+		}),
 		mounted(){
 			if( this.$route.hash ){
 				const $element = document.getElementById(this.$route.hash.slice(1));
+				console.log('dasa');
 				$element.scrollIntoView();
 			}
-			console.log(this.items);
-			window.addEventListener('scroll',function(e){
-				// console.l
-			})
+			window.addEventListener('scroll',this.scrollHandle);
+		},
+		destroyed(){
+			window.removeEventListener('scroll',this.scrollHandle);
+		},
+		methods:{
+			scrollHandle(e){
+				const headerTop = document.querySelector('header').classList.contains('active') ? 15 : 65; // true : header x
+				const cloneItems = [...this.items];
+				const pageY = window.pageYOffset;
+				const item = this.items.find( ({slug,...value}) => {
+					cloneItems.splice(0,1);
+					const nextItem = cloneItems[0];
+					const y = parseInt(document.getElementById(slug).getBoundingClientRect().top)+pageY-headerTop;
+					const nextY = nextItem ? parseInt(document.getElementById(nextItem.slug).getBoundingClientRect().top)+pageY-headerTop : document.body.clientHeight;
+					return y <= pageY && pageY < nextY
+				});
+				this.currentScrollSlug = item?.slug ?? '';
+				// this.$router.replace(`${ this.currentScrollSlug == '' ? '' : '#'+this.currentScrollSlug }`)
+			},
+			clickHandle(slug){
+				this.currentScrollSlug = slug;				
+			}
 		}
 	}
 </script>
@@ -36,6 +59,7 @@
 	}
 	.anchor li a.active{
 		color: red;
+		font-weight: bold;
 	}
 
 
