@@ -16,11 +16,12 @@ function fetchDepthFiles(folders){
 	return folders.map( ({title,path,filePath,type}) => {
 		if( type === 'folder'){
 			const newFolders = fetchFiles(filePath,path);
+			const child = fetchDepthFiles(newFolders);
 			return {
 				title,
-				path,
+				path:child[0].path,
 				collapsable: false,
-				children:fetchDepthFiles(newFolders)
+				children:child
 			};
 		}else{
 			return {
