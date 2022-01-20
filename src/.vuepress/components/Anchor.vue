@@ -15,9 +15,6 @@
 			timer:'',
 			click:false,
 		}),
-		created(){
-			console.log('created');
-		},
 		mounted(){
 			if( this.$route.hash ){
 				const $element = document.getElementById(this.$route.hash.slice(1));
