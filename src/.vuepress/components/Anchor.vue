@@ -2,7 +2,7 @@
 	<div class="anchor">
 		<ul>
 			<li v-for="item in items" :key="item.slug" :class="'floor'+item.level">
-				<router-link :class="{ 'active' : currentScrollSlug === item.slug }" @click="clickHandle(item.slug)" :to="'#'+item.slug">{{item.title}}</router-link>
+				<a :class="{ 'active' : currentScrollSlug === item.slug }" :href="'#'+item.slug" @click="clickHandle(item.slug)">{{item.title}}</a>
 			</li>
 		</ul>
 	</div>
@@ -12,12 +12,16 @@
 		props:['items'],
 		data:()=>({
 			currentScrollSlug:'',
-			timer:''
+			timer:'',
+			click:false,
 		}),
+		created(){
+			console.log('created');
+		},
 		mounted(){
 			if( this.$route.hash ){
 				const $element = document.getElementById(this.$route.hash.slice(1));
-				console.log('dasa');
+				const $html = document.children[0];
 				$element.scrollIntoView();
 			}
 			window.addEventListener('scroll',this.scrollHandle);
@@ -31,23 +35,30 @@
 					clearTimeout(this.timer);
 				}
 				this.timer = setTimeout(()=>{
-					console.log('a');
-					// const headerTop = document.querySelector('header').classList.contains('active') ? 15 : 65; // true : header x
-					// const cloneItems = [...this.items];
-					// const pageY = window.pageYOffset;
-					// const item = this.items.find( ({slug,...value}) => {
-					// 	cloneItems.splice(0,1);
-					// 	const nextItem = cloneItems[0];
-					// 	const y = parseInt(document.getElementById(slug).getBoundingClientRect().top)+pageY-headerTop;
-					// 	const nextY = nextItem ? parseInt(document.getElementById(nextItem.slug).getBoundingClientRect().top)+pageY-headerTop : document.body.clientHeight;
-					// 	return y <= pageY && pageY < nextY
-					// });
-					// this.currentScrollSlug = item?.slug ?? '';
+					const headerTop = document.querySelector('header').classList.contains('active') ? 15 : 65; // true : header x
+					const cloneItems = [...this.items];
+					const pageY = window.pageYOffset;
+					const item = this.items.find( ({slug,...value}) => {
+						cloneItems.splice(0,1);
+						const nextItem = cloneItems[0];
+						const y = parseInt(document.getElementById(slug).getBoundingClientRect().top)+pageY-headerTop;
+						const nextY = nextItem ? parseInt(document.getElementById(nextItem.slug).getBoundingClientRect().top)+pageY-headerTop : document.body.clientHeight;
+						return y <= pageY && pageY < nextY
+					});
+					const slug = item?.slug ?? '';
+					if( this.click ){
+						this.click = false;
+						if ( this.currentScrollSlug === slug ){
+							return;
+						}
+					}
+					this.currentScrollSlug = slug
+					history.pushState({},'',`${ this.currentScrollSlug ? "#"+this.currentScrollSlug : this.$route.path }`)
 				},500)
-
 			},
 			clickHandle(slug){
-				this.currentScrollSlug = slug;				
+				this.click = true;
+				this.currentScrollSlug = slug;
 			}
 		}
 	}
@@ -64,7 +75,7 @@
 		color: #383838;
 		opacity: 0.5;
 	}
-	.anchor li a.router-link-active{
+	.anchor li a.active{
 		color: red;
 		font-weight: bold;
 	}
