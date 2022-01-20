@@ -1,8 +1,8 @@
 <template>
 	<div class="anchor">
 		<ul>
-			<li v-for="item in items" :key="item.slug" :class="'floor'+item.level">
-				<a :class="{ 'active' : currentScrollSlug === item.slug }" :href="'#'+item.slug" @click="clickHandle(item.slug)">{{item.title}}</a>
+			<li v-for="item in items" :key="item.slug" :class="[{ 'active' : currentScrollSlug === item.slug },'floor'+item.level]">
+				<a :href="'#'+item.slug" @click="clickHandle(item.slug)">{{item.title}}</a>
 			</li>
 		</ul>
 	</div>
@@ -48,7 +48,7 @@
 					const slug = item?.slug ?? '';
 					if( this.click ){
 						this.click = false;
-						if ( this.currentScrollSlug === slug ){
+						if ( this.currentScrollSlug === slug || this.currentScrollSlug === this.items.slice(-1)[0].slug ){
 							return;
 						}
 					}
@@ -75,9 +75,16 @@
 		color: #383838;
 		opacity: 0.5;
 	}
-	.anchor li a.active{
+	.anchor li.active{
+		transform: scale(1.05);
+		transition: 0.125s linear;
+	}
+	.anchor li.active a{
 		color: red;
-		font-weight: bold;
+		font-weight: 900;
+	}
+	.anchor li:hover a{
+		color:red;
 	}
 
 
