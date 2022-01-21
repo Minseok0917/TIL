@@ -51,7 +51,7 @@
 					}
 					this.currentScrollSlug = slug
 					history.pushState({},'',`${ this.currentScrollSlug ? "#"+this.currentScrollSlug : this.$route.path }`)
-				},500)
+				},100)
 			},
 			clickHandle(slug){
 				this.click = true;
