@@ -13,4 +13,4 @@ jobs:
         ACCESS_TOKEN: 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
         BUILD_SCRIPT: yarn && yarn build
         TARGET_BRANCH: gh-pages
-        BUILD_DIR: build/
+        BUILD_DIR: src/.vuepress/dist
