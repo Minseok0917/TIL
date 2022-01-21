@@ -5,6 +5,7 @@ const { description } = require('../../package')
 
 module.exports = {
   title: 'Vuepress Docs Boilerplate',
+  base:'/TIL/',
   description: description,
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
