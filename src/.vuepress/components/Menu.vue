@@ -18,6 +18,7 @@
 		}),
 		created(){
 			this.path = decodeURI(this.$route.fullPath);
+			console.log(this.items);
 		}
 	}
 </script>

@@ -30,7 +30,6 @@
 				this.$localePath
 			);
 			this.anchorItems = this.$page.headers || [];
-			console.log('dasasd');
 		},
 	});
 </script>
