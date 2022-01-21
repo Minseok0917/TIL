@@ -1,28 +1,28 @@
 <template>
-	<div class="menu">
-		<ul>
-			<li v-for="item in items" :key="item.path">
-				<router-link :to="item.path">{{item.title}}</router-link>
-				<ul>
-					<li v-for="childItem in item.children" :key="childItem.title">
-						<router-link :to="childItem.path">{{childItem.title}}</router-link>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+	<ul class="menu">
+		<li v-for="item in items" :key="item.path">
+			<template v-if="items.length > 1">
+				<router-link :class="{ 'active' : path === decodeURI(item.path) || path === (decodeURI(item.path)+'/') }" :to="item.path">{{item.title}}</router-link>
+			</template>
+			<template v-if="item.children">
+				<Menu :items="item.children"></Menu>
+			</template>
+		</li>
+	</ul>
 </template>
 <script>
 	export default{
 		props:['items'],
+		data:()=>({
+			path:'/'
+		}),
 		created(){
-			const items = this.$props.items;
-			console.log(items);
+			this.path = decodeURI(this.$route.fullPath);
 		}
 	}
 </script>
 <style>
-	.menu{ position: fixed; }
 	.menu li{ list-style: none; }
-	.menu li a{ color: #333; }
+	.menu li a{ color: #999; font-size: 0.85rem; line-height: 1.5;}
+	.menu li a.active{ color: #333;  }
 </style>

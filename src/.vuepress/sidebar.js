@@ -25,7 +25,7 @@ function fetchDepthFiles(folders){
 			};
 		}else{
 			return {
-				title,
+				title:title.replace('.md',''),
 				path,
 			}
 		}

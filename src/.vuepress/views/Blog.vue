@@ -2,12 +2,12 @@
 	<div>
 		<section>
 			<div class="menu-container">
-				<Menu :items="menuItems" />
+				<Menu class="menu-wrap" :items="menuItems" />
 			</div>
 			<div class="theme-default-content content__default">
 				<Content />
 			</div>
-			<div class="anchor-container">
+			<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
 				<Anchor :items="anchorItems" />				
 			</div>
 		</section>
@@ -29,7 +29,7 @@
 				this.$site,
 				this.$localePath
 			);
-			this.anchorItems = this.$page.headers;
+			this.anchorItems = this.$page.headers || [];
 			console.log('dasasd');
 		},
 	});
@@ -38,8 +38,12 @@
 	section{
 		display: flex;
 	}
+	.menu-wrap{ position: fixed; }
 	section>.menu-container,
-	section>.anchor-container{ flex: 1; }
+	section>.anchor-container{ flex: 1; overflow: hidden;}
+	.anchor-container.hidden{
+		visibility: hidden;
+	}
 	.theme-default-content{
 		max-width: 940px !important;
 		flex: 3;

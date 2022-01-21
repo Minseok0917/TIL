@@ -67,6 +67,7 @@
 	}
 	.anchor li{
 		list-style: none;
+		transition: 0.125s linear;
 	}
 	.anchor li a{
 		color: #383838;
@@ -74,7 +75,6 @@
 	}
 	.anchor li.active{
 		transform: scale(1.05);
-		transition: 0.125s linear;
 	}
 	.anchor li.active a{
 		color: red;

@@ -2,8 +2,8 @@
 	<div>
 		<TheHeader :fullPath="fullPath" />		
 		<template>
-			<Home v-if="path == '/'" />
-			<Blog v-else :key="path" />
+			<Home class="contents" v-if="path == '/'" />
+			<Blog class="contents" v-else :key="path" />
 		</template>
 		<TheFooter/>
 	</div>
@@ -34,5 +34,8 @@
 	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 	*{
 		font-family: 'Archivo','Noto Sans KR', sans-serif;
+	}
+	.contents{
+		min-height: calc(100vh - 100px);
 	}
 </style>
