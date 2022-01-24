@@ -4,10 +4,8 @@
 페이스북에서 만든 Javascript 라이브러리이다.          
 주요 목적은 **"개발자가 UI를 만들때 일어나는 버그를 최소화 시키는 것"** 이라고 적혀있다.  
 Github에 2013.05.29일 최초공개를 하였다.
+ 
 
-### 참고
-- [MDN React](https://developer.mozilla.org/ko/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
-- [React release](https://github.com/facebook/react/blob/main/CHANGELOG.md)      
 
 ## 장단점 ( 01.23 )
 가상돔은 나중에 새로운 페이지에 글을 쓸거다.      
@@ -21,9 +19,12 @@ Github에 2013.05.29일 최초공개를 하였다.
 ### 단점
 다양한 방법으로 코드를 쓸 수 있기 때문에 러닝커브가 중간정도 되는거 같다. `코드 통일성`
 
+## 특징 ( 01.24 )
+JSX 문법을 사용한다.
+
 ## 소스코드 원리 파악 ( 01.24 )
 React를 공부하기 위해서 공식문서에서 알려주는 React CRA 프로젝트를 뜯어보기로 했다.       
-핵심코어들 분석하기 위해서 Node.js 에서 어떻게 코드가 흘러가는지 파악할 필요가 있었다.       
+리액트를 흐름도를 알기위해서 Node.js 에서 어떻게 코드가 흘러가는지 파악할 필요가 있었다.       
 <br>
 src/index.js 파일에서 node_module 에 있는 `react` `react-dom` 을 호출해주는 코드가 있다.        
 ~~*`<App />`을 감싸는 stickMode 는 그냥 지웠다*~~
@@ -97,12 +98,15 @@ React 에선 component 를 import 할 때 Node.js 에서 JSX 문법이 Object �
 
 
 
-
-
-
 <!-- 
 ## Reference
 [risingstars](https://risingstars.js.org/2021/ko)     
 [stateofjs](https://2020.stateofjs.com/ko-KR/) 
 [react docs](https://ko.reactjs.org/docs/getting-started.html)
 -->
+
+
+
+## 참고
+- [MDN React](https://developer.mozilla.org/ko/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
+- [React release](https://github.com/facebook/react/blob/main/CHANGELOG.md)     
