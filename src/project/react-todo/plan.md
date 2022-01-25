@@ -12,6 +12,10 @@ anchor 주소가 바뀌다 보니 이전에 걸어준 주소를 다 바꿔줘야
 
 ## Project Planning
 
+### Font 
+영어 폰트 : Archivo       
+한글 폰트 : NotoSansKR
+
 ### Function
 - calendar
 - todolist
