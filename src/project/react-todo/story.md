@@ -84,8 +84,8 @@ const currentMonthBlock = ({monthLastDay}) => {
 
 ```js
 const maxCount = 42;
-const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
-	const nextDayCount = maxDayCount-monthFirstDayOfWeekNumber-prevMonthLastDay; // 42 - 1번값 - 3번값 
+const nextMonthBlock = ({monthFirstDayOfWeekNumber,monthLastDay}) => {
+	const nextDayCount = maxDayCount-monthFirstDayOfWeekNumber-monthLastDay; // 42 - 1번값 - 3번값 
 	return Array(nextDayCount).fill().map((_,idx)=>(
 		<div className="body item next-month" key={idx}>
 			{idx+1}
