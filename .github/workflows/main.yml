@@ -16,6 +16,6 @@ jobs:
       uses: jenkey2011/vuepress-deploy@1.0.1
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BUILD_SCRIPT: npm && npm build
+        BUILD_SCRIPT: yarn && yarn build --ignore-engines
         TARGET_BRANCH: gh-pages
         BUILD_DIR: src/.vuepress/dist
