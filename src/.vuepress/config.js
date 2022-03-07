@@ -1,6 +1,7 @@
 const sidebar = require('./sidebar.js');
 const path = require('path');
-const { description } = require('../../package')
+const { description } = require('../../package');
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 module.exports = {
@@ -56,6 +57,14 @@ module.exports = {
       }],
   ],
   configureWebpack:{
+    module:{
+      rules:[
+        {
+          test:/\.mon$/,
+          use:['style-loader','css-loader','sass-loader']
+        }
+      ]
+    },
     resolve:{
       alias:{
         '@image': path.join(__dirname,'./public')

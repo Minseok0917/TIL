@@ -15,10 +15,19 @@
   "license": "MIT",
   "devDependencies": {
     "@goy/vuepress-plugin-svg-icons": "^4.2.3",
+    "cache-loader": "^4.1.0",
+    "css-loader": "^6.7.0",
+    "mini-css-extract-plugin": "^1.6.2",
+    "node-sass": "^4.14.1",
+    "precss": "^4.0.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^2.0.0",
     "vuepress": "^1.5.3",
     "vuepress-plugin-clean-urls": "^1.1.2",
     "vuepress-plugin-container": "^2.1.5",
-    "vuepress-plugin-smooth-scroll": "^0.0.3"
+    "vuepress-plugin-smooth-scroll": "^0.0.3",
+    "webpack": "^4.46.0"
   },
   "dependencies": {
     "@vue/composition-api": "^1.4.3"
