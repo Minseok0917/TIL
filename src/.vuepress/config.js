@@ -1,7 +1,6 @@
 const sidebar = require('./sidebar.js');
 const path = require('path');
 const { description } = require('../../package');
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 module.exports = {
@@ -67,6 +66,7 @@ module.exports = {
     },
     resolve:{
       alias:{
+        '@':path.join(__dirname),
         '@image': path.join(__dirname,'./public')
       }
     }

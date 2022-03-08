@@ -2,13 +2,13 @@
 	<div>
 		<section>
 			<div class="menu-container">
-				<Menu class="menu-wrap" :items="menuItems" />
+				<!-- <Menu class="menu-wrap" :items="menuItems" /> -->
 			</div>
-			<div class="theme-default-content content__default">
+			<div class="markdown-theme">
 				<Content />
 			</div>
 			<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
-				<Anchor :items="anchorItems" />				
+				<!-- <Anchor :items="anchorItems" />				 -->
 			</div>
 		</section>
 	</div>
@@ -34,7 +34,7 @@
 	});
 </script>
 <style scoped>
-	section{
+/*	section{
 		display: flex;
 	}
 	.menu-wrap{ position: fixed; }
@@ -53,5 +53,5 @@
 	}
 	.anchor-container{
 		padding: 3rem 1.5rem;
-	}
+	}*/
 </style>
