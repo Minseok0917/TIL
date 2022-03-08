@@ -2,7 +2,7 @@
 <template>
 	<div>
 		<section>
-			<div class="theme-default-content content__default">
+			<div class="markdown-theme">
 				<Content />
 			</div>
 		</section>
