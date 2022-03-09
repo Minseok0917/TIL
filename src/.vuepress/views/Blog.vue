@@ -1,17 +1,15 @@
 <template>
-	<div>
-		<section>
-			<div class="menu-container">
-				<!-- <Menu class="menu-wrap" :items="menuItems" /> -->
-			</div>
-			<div class="markdown-theme">
-				<Content />
-			</div>
-			<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
-				<!-- <Anchor :items="anchorItems" />				 -->
-			</div>
-		</section>
-	</div>
+	<section class="blog-container">
+		<div class="menu-container">
+			<Menu class="menu-wrap" :items="menuItems" :depth="0" />
+		</div>
+		<div class="markdown-theme">
+			<Content />
+		</div>
+		<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
+			<Anchor class="anchor-wrap" :items="anchorItems" />				
+		</div>
+	</section>
 </template>
 <script>
 	import { defineComponent } from '@vue/composition-api';
@@ -28,7 +26,7 @@
 				this.$page.regularPath,
 				this.$site,
 				this.$localePath
-			);
+				);
 			this.anchorItems = this.$page.headers || [];
 		},
 	});
@@ -53,5 +51,5 @@
 	}
 	.anchor-container{
 		padding: 3rem 1.5rem;
-	}*/
+		}*/
 </style>

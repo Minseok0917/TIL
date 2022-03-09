@@ -1,18 +1,26 @@
 .markdown-theme{
-	width: 1200px;
-	margin: 0 auto;
+	width: $markdownWidth;
+	font-weight: 300;
 
 	p,ol,ul{
 		line-height: 1.7;
 	}
 
+	a{
+		font-size: 1rem;
+		color: #7a83ff;
+		&:hover{ text-decoration: underline; }
+	}
+
 	h1,h2,h3,h4,h5,h6{
 		a{ 
+			font-size: inherit;
 			float: left;
 			display: inline-block;
 			text-align: right;
 			width: 20px;
-			margin-left: -24px;
+			margin-left: -20px;
+			padding-right: 4px;
 			visibility: hidden; 
 			&:hover{ text-decoration: underline; }
 		}
@@ -25,32 +33,31 @@
 	}
 
 	h1{
-		font-size: 2.25rem;
+		font-size: 2rem;
 		border-bottom: 1px solid #d8dee4;
 		padding-bottom: 0.3rem;
-		margin-bottom: 0.3rem;
 	}
 	h2{
-		font-size: 2rem;
-	}
-	h3{
-		font-size: 1.75rem;
-	}
-	h4{
 		font-size: 1.5rem;
 	}
-	h5{
+	h3{
 		font-size: 1.25rem;
 	}
+	h4{
+		font-size: 1em;
+	}
+	h5{
+		font-size: 0.875rem;
+	}
 	h6{
-		font-size: 1rem;
+		font-size: 0.85rem;
 	}
 
 	ul{ padding-left: 2rem; }
 	li{ list-style:inherit; }
 
 	hr{ border: 1px solid #d8dee4; }
-	strong{ color: #9570d0; }
+	strong{ font-weight: 500; color: #9570d0; }
 
 	p>code{
 		font-size: 0.75rem;
@@ -60,16 +67,15 @@
 		background: #efe5ff;
 
 	}
-	p>a{
-		font-size: 1rem;
-		color: #7a83ff;
-		&:hover{ text-decoration: underline; }
-	}
 
 	div[class*="language-"]{
 		margin: 1.5rem 0 1rem;
-		padding: 0.5rem 0.25rem;
+		pre{
+			line-height: 1.4;
+			padding: 1.25rem 1.5rem;
+		}
 		code,span{
+			font-family: 'source-code-pro', 'Menlo', 'Monaco', 'Consolas', 'Courier New', 'monospace';
 			font-size: 0.75rem;
 		}
 	}

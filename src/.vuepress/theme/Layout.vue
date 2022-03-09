@@ -3,7 +3,7 @@
 		<TheHeader :fullPath="fullPath" />		
 		<template>
 			<Home class="contents" v-if="path == '/'" />
-			<Blog class="contents" v-else :key="path" />
+			<Blog class="contents" v-else />
 		</template>
 		<TheFooter/>
 	</div>
