@@ -7,7 +7,7 @@
 			<Content />
 		</div>
 		<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
-			<Anchor class="anchor-wrap" :items="anchorItems" />				
+			<Anchor class="anchor-wrap" :items="anchorItem"  />				
 		</div>
 	</section>
 </template>
@@ -26,9 +26,24 @@
 				this.$page.regularPath,
 				this.$site,
 				this.$localePath
-				);
+			);
 			this.anchorItems = this.$page.headers || [];
 		},
+		computed:{
+			path:function(){
+				return this.$route.path;
+			},
+			anchorItem:function(){
+				this.menuItems = resolveSidebarItems(
+					this.$page,
+					this.$page.regularPath,
+					this.$site,
+					this.$localePath
+				);
+				this.anchorItems = this.$page.headers || [];
+				return this.anchorItems = this.$page.headers || [];;
+			}
+		}
 	});
 </script>
 <style scoped>
