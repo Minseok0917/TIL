@@ -1,9 +1,18 @@
-::-webkit-scrollbar{	
-	width: 12px;
+body::-webkit-scrollbar{
+	width: 8px;
+}
+
+::-webkit-scrollbar{
+	width: 5px;
 }
 ::-webkit-scrollbar-thumb{
-	background: #9570d0;
+	&:active{
+		background: #878787;
+	}
+	border-radius: 10px;
+	background: #cbcbcb;
+
 }
-::-webkit-scrollbar-track{
-	background: #efe5ff;
+::-webkit-scrollbar-track{	
+	background: #ededed;
 }
