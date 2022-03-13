@@ -1,0 +1,20 @@
+.blog-container{
+	display: flex;
+
+
+
+	.menu-container, .anchor-container{
+		flex:1;
+		padding: 3rem;
+	}
+	.menu-container .menu-wrap,
+	.anchor-container .anchor-wrap{
+		position: sticky;
+		top: 5rem;
+	}
+
+	.markdown-theme{
+		padding: 3rem 1rem;
+	}
+
+}
