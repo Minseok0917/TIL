@@ -1,17 +1,15 @@
 <template>
-	<div>
-		<section>
-			<div class="menu-container">
-				<Menu class="menu-wrap" :items="menuItems" />
-			</div>
-			<div class="theme-default-content content__default">
-				<Content />
-			</div>
-			<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
-				<Anchor :items="anchorItems" />				
-			</div>
-		</section>
-	</div>
+	<section class="blog-container">
+		<div class="menu-container">
+			<Menu class="menu-wrap" :items="menuItems" :depth="0" />
+		</div>
+		<div class="markdown-theme">
+			<Content />
+		</div>
+		<div class="anchor-container" :class="{ 'hidden' : anchorItems.length === 0}">
+			<Anchor class="anchor-wrap" :items="anchorItem"  />				
+		</div>
+	</section>
 </template>
 <script>
 	import { defineComponent } from '@vue/composition-api';
@@ -31,10 +29,25 @@
 			);
 			this.anchorItems = this.$page.headers || [];
 		},
+		computed:{
+			path:function(){
+				return this.$route.path;
+			},
+			anchorItem:function(){
+				this.menuItems = resolveSidebarItems(
+					this.$page,
+					this.$page.regularPath,
+					this.$site,
+					this.$localePath
+				);
+				this.anchorItems = this.$page.headers || [];
+				return this.anchorItems = this.$page.headers || [];;
+			}
+		}
 	});
 </script>
 <style scoped>
-	section{
+/*	section{
 		display: flex;
 	}
 	.menu-wrap{ position: fixed; }
@@ -53,5 +66,5 @@
 	}
 	.anchor-container{
 		padding: 3rem 1.5rem;
-	}
+		}*/
 </style>

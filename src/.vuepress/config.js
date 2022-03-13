@@ -1,6 +1,6 @@
 const sidebar = require('./sidebar.js');
 const path = require('path');
-const { description } = require('../../package')
+const { description } = require('../../package');
 
 
 module.exports = {
@@ -56,8 +56,17 @@ module.exports = {
       }],
   ],
   configureWebpack:{
+    module:{
+      rules:[
+        {
+          test:/\.mon$/,
+          use:['style-loader','css-loader','sass-loader']
+        }
+      ]
+    },
     resolve:{
       alias:{
+        '@':path.join(__dirname),
         '@image': path.join(__dirname,'./public')
       }
     }

@@ -1,29 +1,34 @@
 <template>
-	<ul class="menu">
-		<li v-for="item in items" :key="item.path">
-			<template v-if="items.length > 1">
-				<router-link :class="{ 'active' : path === decodeURI(item.path) || path === (decodeURI(item.path)+'/') }" :to="item.path">{{item.title}}</router-link>
-			</template>
-			<template v-if="item.children">
-				<Menu :items="item.children"></Menu>
-			</template>
-		</li>
-	</ul>
+	<div>
+		<div class="title-box" v-if="depth === 0">
+			<p class="title">
+				<span>CATEGORY LIST</span>
+			</p>
+		</div>
+		<ul class="menu">
+			<li v-for="item in items" :key="item.path">
+				<template v-if="item.type === 'group' "> <!--fodler  -->
+					<details>
+						<!-- <summary><router-link :class="{ 'active' : path === decodeURI(item.path) || path === (decodeURI(item.path)+'/') }" :to="item.path">{{item.title}}</router-link></summary> -->
+						<summary>{{item.title}}</summary>
+						<Menu :items="item.children" :depth="depth+1" ></Menu>
+					</details>
+				</template>
+				<template v-else> <!-- markdown -->
+					<router-link :class="{ 'active' : path === decodeURI(item.path) || path === (decodeURI(item.path)+'/') }" :to="item.path">{{item.title}}</router-link>
+				</template>
+			</li>
+		</ul>
+	</div>
 </template>
 <script>
 	export default{
-		props:['items'],
+		props:['items','depth'],
 		data:()=>({
 			path:'/'
 		}),
 		created(){
 			this.path = decodeURI(this.$route.fullPath);
-			console.log(this.items);
 		}
 	}
 </script>
-<style>
-	.menu li{ list-style: none; }
-	.menu li a{ color: #999; font-size: 0.85rem; line-height: 1.5;}
-	.menu li a.active{ color: #333;  }
-</style>

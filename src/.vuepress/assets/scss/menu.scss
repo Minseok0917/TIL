@@ -1,0 +1,48 @@
+.menu-wrap{
+	width: 260px;
+	&>.menu{
+		height: 80vh;
+		overflow-y:auto;
+		overflow-x:hidden;
+	}
+	.title-box{	
+		.title{
+			span{
+				position: relative;
+				color: #24292fb3;
+				font-size: 0.85rem;
+				&::before{
+				    content: "";
+				    position: absolute;
+				    bottom: 5px;
+				    width: 100%;
+				    height: 1px;
+				    background: $mainColor;
+				}
+			}
+			background: #fff;
+			padding: 0.25rem;
+		}
+	}
+	details{
+		details{
+			padding-left: 1.25rem;
+			li{ 
+				margin-left: 1.25rem; 
+				list-style-type:"·  "
+			}
+			a.router-link-active{ font-weight: 600;  }
+		}
+		summary, li{
+			user-select: none;
+			padding: 0.125rem 0;
+			font-size: 0.85rem;	
+			font-weight: 300;
+		}
+		summary{
+			&::marker{ font-size: 0.75rem; color: #686868;  }
+			cursor: pointer;
+			font-weight: 400;
+		}
+	}
+}

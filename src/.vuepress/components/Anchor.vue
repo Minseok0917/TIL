@@ -1,6 +1,7 @@
 <template>
-	<div class="anchor">
+	<div>
 		<ul>
+			<li class="floor1">IN THIS ARTICLE</li>
 			<li v-for="item in items" :key="item.slug" :class="[{ 'active' : currentScrollSlug === item.slug },'floor'+item.level]">
 				<a :href="'#'+item.slug" @click="clickHandle(item.slug)">{{item.title}}</a>
 			</li>
@@ -61,7 +62,7 @@
 	}
 </script>
 <style scoped>
-	.anchor{
+	/*.anchor{
 		position: fixed;
 		border-left: 3px solid #e0e0e0;
 	}
@@ -92,5 +93,5 @@
 		font-size: 0.75rem;
 	}
 
-	.floor2~.floor3{ padding-left: 1rem; }
+	.floor2~.floor3{ padding-left: 1rem; }*/
 </style>
