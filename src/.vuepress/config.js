@@ -4,7 +4,7 @@ const { description } = require('../../package');
 
 
 module.exports = {
-  title: 'Vuepress Docs Boilerplate',
+  title: 'Today I Learned',
   base:'/TIL/',
   description: description,
   head: [
