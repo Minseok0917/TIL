@@ -6,7 +6,7 @@
 			</p>
 		</div>
 		<ul class="menu">
-			<li v-for="item in items" :key="item.path">
+			<li v-for="item in items" :key="item.path" :class="{ 'list-style' : item.type === 'page' }">
 				<template v-if="item.type === 'group' "> <!--fodler  -->
 					<details>
 						<!-- <summary><router-link :class="{ 'active' : path === decodeURI(item.path) || path === (decodeURI(item.path)+'/') }" :to="item.path">{{item.title}}</router-link></summary> -->
@@ -29,6 +29,7 @@
 		}),
 		created(){
 			this.path = decodeURI(this.$route.fullPath);
+			console.log(this.items);
 		}
 	}
 </script>

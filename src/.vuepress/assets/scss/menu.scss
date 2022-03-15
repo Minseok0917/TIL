@@ -24,13 +24,15 @@
 			padding: 0.25rem;
 		}
 	}
+
+	li.list-style{ 
+		margin-left: 1.25rem; 
+		list-style-type:"·  "
+	}
+	
 	details{
 		details{
 			padding-left: 1.25rem;
-			li{ 
-				margin-left: 1.25rem; 
-				list-style-type:"·  "
-			}
 			a.router-link-active{ font-weight: 600;  }
 		}
 		summary, li{
