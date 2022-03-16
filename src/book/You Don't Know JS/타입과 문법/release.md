@@ -1,8 +1,74 @@
+# 2022.03.15
 
-
-## 2022.03.15
-
-### 1.1 타입 실체 이해 `25p ~ 26p`
+## 1.1 타입 실체 이해 `25p ~ 26p`
 JS 의 타입은 매우 헷갈리는 주제이고, 강제변환이 매우 헷갈리는 주제이다.    
 강제변환을 이해하기 전에 **값**과 **타입**에 대해 이해를 한다고 소개하는 페이지이다.
 
+
+# 2022.03.16
+
+## 1.2 내장 타입 `27p ~ 29p`
+
+### 원시타입 : 하나의 값을 담고 있는것
+- undefined
+- null
+- boolean
+- number
+- string
+- symbol
+
+### 참조 타입 : 여러개의 값을 담을 수 있는 것
+- object
+
+### null 에 대하여
+null 의 타입은 **object** 이다.      
+원래는 null 로 나와야 하지만 Javascript Type 버그다.       
+수정하지 않는 이유는 변경시 기존 작동하는 소프트웨어가 멈출 수 있기 때문이다.         
+
+null 은 **falsy** 한 원시값이지만 타입은 **object** 인 특별한 존재이다.
+``` js
+// null 검사 방법
+const a = null;
+(!a && typeof a === 'object' ); // true 
+```
+
+### typeof Function
+typeof 의 Function 을 사용하면 **function** 이라고 나와서 최상위 내장 타입처럼 보이지만        
+object의 **하위 타입** 이다. 
+
+함수에 선언된 인자의 개수는 length 로 가져올 수 있다.
+
+### typeof [1,2,3] 
+배열 또한 Key 가 문자열인 객체와 반대로 숫자 인덱스가 존재하고,      
+length 프로퍼티가 자동으로 관리되는 객체의 **하위 타입** 이다. 
+
+## 1.2 읽고 궁금한 점
+
+### null 과 undefined 의 차이 
+- undefined 는 값이 비어 있는것이다. ( 변수에 값을 추가하지 않음 )
+- null 은 값을 없다라는것을 표시할 때 쓰는 것이다. 
+
+### Falsy 란?
+Falsy 란 **거짓같은 값**이다.      
+Javascrtip Engine 에서 Boolean 타입의 기준을 `Truthy(참 으로 평가되는 값)` 와 `Falsy(거짓으로 평가되는 값)` 으로 구분한다.       
+즉 요약하자면 아래와 같다.
+- Javascript Engine 에서 **Truthy** 기준으로 Boolean 값을 true 로 반환한다.
+- Javascript Engine 에서 **Falsy** 기준으로 Boolean 값을 false 로 반환한다.
+
+
+##### **Falsy** 가 뜨는 경우는 대표적인 경우는 아래 6가지이다.
+- false
+- 0
+- ""
+- null
+- undefined
+- NaN
+
+- #### 참고 
+	- [MDN](https://developer.mozilla.org/ko/docs/Glossary/Falsy)
+	- [Blog](https://joooing.tistory.com/entry/%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC-%ED%95%A0-6%EA%B0%80%EC%A7%80-falsy-%EA%B0%92)
+
+###  Symbol 이 무엇인가?
+다른 [글](https://ko.javascript.info/symbol)을 찾아서 읽어보았는데     
+어느정도 이해는 했으나 제대로 못해서 내일 다시 읽어볼 예정이다.      
+찾은 글 사이트가 여러 개념이 잘 정리되어있는거 같아 훓어보면 도움이 될 거 같다.
