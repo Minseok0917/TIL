@@ -50,7 +50,7 @@ length 프로퍼티가 자동으로 관리되는 객체의 **하위 타입** 이
 
 ### Falsy 란?
 Falsy 란 **거짓같은 값**이다.      
-Javascrtip Engine 에서 Boolean 타입의 기준을 `Truthy(참 으로 평가되는 값)` 와 `Falsy(거짓으로 평가되는 값)` 으로 구분한다.       
+Javascript Engine 에서 Boolean 타입의 기준을 `Truthy(참 으로 평가되는 값)` 와 `Falsy(거짓으로 평가되는 값)` 으로 구분한다.       
 즉 요약하자면 아래와 같다.
 - Javascript Engine 에서 **Truthy** 기준으로 Boolean 값을 true 로 반환한다.
 - Javascript Engine 에서 **Falsy** 기준으로 Boolean 값을 false 로 반환한다.
@@ -72,3 +72,82 @@ Javascrtip Engine 에서 Boolean 타입의 기준을 `Truthy(참 으로 평가�
 다른 [글](https://ko.javascript.info/symbol)을 찾아서 읽어보았는데     
 어느정도 이해는 했으나 제대로 못해서 내일 다시 읽어볼 예정이다.      
 찾은 글 사이트가 여러 개념이 잘 정리되어있는거 같아 훓어보면 도움이 될 거 같다.
+
+###### 2022.03.17 작성 
+#### 심볼은 유일한 식별자다.
+1. 객체에 키 값으로 심볼을 넣을수 있다.        
+2. 객체에 값을 가져올려면 키 값으로 심볼을 넣어야 한다.
+3. 외부에선 객체 키로 넣은 심볼이 없으면 값을 호출할 수 없다. `유일성 때문에`
+
+#### Symbols in a literal
+1. 심볼 프로퍼티는 **hidden** 되어 있어서 `for .. in`, `Object.keys` 등으로 키를 가져올 수 없다. 
+2. `Object assign` 또한 값에 접근할 수 없다.
+
+#### Symbol.for
+심볼은 **유일 값** 이지만 변수명은 다르더라도 같은 심볼 객체를 가르키는 경우가 존재한다. 
+```js
+// Symbol.for : 전역 심볼에서 존재하면 가져오고, 존재하지 않을 경우 생성한다.
+const idA = Symbol.for('id');
+const idB = Symbol.for('id');
+
+idA === idB // true
+```
+
+#### Symbol.keyFor
+`Symbol.for` 은 심볼을 가져오는 거면 **key** 를 가져오는 메소드도 존재한다.       
+```js
+const id = Symbol.for('id');
+const localId = Symbol('id');
+
+Symbol.keyFor(id); // id
+
+/*
+  전역 심볼이 아닌 인자가 넘어올 시 "undefined" 을 반환한다.
+  전역심볼이 아닌 심볼은 description 키로 이름을 가져올 수 있다.
+*/
+Symbol.keyFor(localId);  // undefined
+localId.description; // id 
+```
+#### 정리 
+자주 쓰는건 정리 했지만  `System Simbol`, `Symbol interal` 같은 건         
+책을 다 읽고 난 카테고리를 파서 정리하는게 좋을거 같다.
+
+
+# 2022.03.17
+
+## 1.3 값은 타입을 가진다. ( 29p ~ 36p )
+
+**JS 는 변수의 타입을 지정하는게 아니다**
+변수의 **값** 의 타입을 지정하는거다.
+
+### 1.3.1 값이 없는 vs 선언되지 않은
+
+**undefeind(값이 없는)** 와 **undeclared(선언되지 않은)** 는 다른 개념이다. 
+- undefined : 변수에 값을 추가하지 않아서 값이 없을 경우 
+- undecared : 변수의 선언 조차 되지 않은 경우
+
+선언되지 않은 변수를 `type of` 를 사용했을 때 **undefined** 을 반환한다.       
+이것이 Javascript 의 **Type Guard** 이다.     
+
+### 1.3.2 선언되지 않은 변수
+
+**Type Guard** 를 사용하여 변수의 존재여부를 확인 할 수 있다.    
+```js
+// 선언되지 않은 변수를 호출 했기 때문에 에러를 반환한다.
+if( User ){ 
+	console.log(User);
+}
+
+/*
+  선언되지 않은 변수를 호출해도 undefined 로 반환하기 때문에
+  존재여부를 체크할 수 있게 된다.
+*/
+if( typeof User !== 'undefined' ){ 
+	console.log(User);
+}
+```
+
+::: tip 주로 Javascript 의 폴리필을 구현할 때 쓰인다.
+:::
+
+
