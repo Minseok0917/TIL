@@ -1,43 +1,42 @@
-const path = require('path');
-const fs = require('fs');
-const rootFolderPath = path.join(`${__dirname}/../`);
+const path = require("path");
+const fs = require("fs");
+const markdownDirectoryPath = path.join(`${__dirname}/../`);
+const directoryName = {
+    2022: "2022년",
+};
+const convertDirectoryName = (title) => directoryName[title] || title;
+const convertMarkdownName = (title) => markdownName[title] || title;
+const getDirectorys = (directoryPath) =>
+    fs.readdirSync(directoryPath, { withFileTypes: true });
 
-
-function fetchFiles(folderPath,parentName=''){
-	return fs.readdirSync(folderPath,{ withFileTypes:true }).map( file =>({
-		type: file.isDirectory() ? 'folder' : 'file',
-		title:`${file.name}`,
-		path:`${parentName}/${file.name === 'README.md' ? '' : file.name.replace('.md','') }`,
-		filePath:`${folderPath}/${file.name}`,
-	}));
+function all(directoryPath, parentDirectoryPath = "") {
+    let directorys = getDirectorys(directoryPath);
+    if (!parentDirectoryPath) {
+        directorys = directorys.filter(({ name }) => name !== ".vuepress");
+    }
+    return directorys
+        .filter((file) => {
+            const isDirectory = file.isDirectory();
+            const filterMarkdown = ["README.md", "index.md"];
+            const isFilterMarkdown = filterMarkdown.includes(file.name);
+            if (isDirectory || !isFilterMarkdown) return file;
+        })
+        .map((file) => {
+            const isDirectory = file.isDirectory();
+            const childDirectoryPath = `${directoryPath}/${file.name}`;
+            const title = file.name.replace(".md", "");
+            const path = `${parentDirectoryPath}/${title}`;
+            const result = {
+                isDirectory,
+                path,
+                title,
+            };
+            if (isDirectory) {
+                result.title = convertDirectoryName(title);
+                result.children = all(childDirectoryPath, path);
+            }
+            return result;
+        });
 }
 
-function fetchDepthFiles(folders){
-	return folders.map( ({title,path,filePath,type}) => {
-		if( type === 'folder'){
-			const newFolders = fetchFiles(filePath,path);
-			const child = fetchDepthFiles(newFolders);		
-			return {
-				title,
-				path:child[0].path,
-				collapsable: false,
-				children:child
-			};
-		}else{
-			return {
-				title:title.replace('.md',''),
-				path,
-			}
-		}
-	});
-}
-
-
-function init(){
-	const rootFiles = fetchFiles(rootFolderPath).filter(({title,type})=> title != '.vuepress' && type != 'file' );
-	const depthFiles = fetchDepthFiles(rootFiles);
-	return depthFiles;
-}
-
-
-module.exports = init();
+module.exports = all(markdownDirectoryPath);

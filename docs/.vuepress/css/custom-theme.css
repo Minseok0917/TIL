@@ -1,0 +1,214 @@
+/* @====================================== font */
+
+/* @font : Noto Sans KR */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+/* @font : Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* @======================================= base */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "MontserratMorr", "Noto Sans KR", sans-serif;
+}
+
+/* @================================= class  */
+.container {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* @========================================= markdown */
+
+.markdown-board .info {
+    text-align: center;
+}
+.markdown-board .info .hit-container {
+    padding-bottom: 3rem;
+}
+.markdown-board .info .title {
+    line-height: 1.1;
+    font-weight: 900;
+}
+.markdown-board .info .create-by {
+    padding: 0.5rem 0;
+    font-weight: 600;
+    opacity: 0.85;
+    font-size: 0.875rem;
+}
+.markdown-board .info .img-box {
+    border-radius: 0.875rem;
+    max-height: 70vh;
+    overflow: hidden;
+}
+
+.markdown-container {
+    padding: 0 5rem;
+}
+.markdown-container h1 {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 2px solid #dfdfdf;
+    border-bottom: 2px solid #dfdfdf;
+    border-right: 0;
+    border-left: 0;
+    border-style: dashed;
+    font-weight: 900;
+    line-height: 3rem;
+}
+.markdown-container h1:first-child {
+    margin-top: 5rem;
+}
+.markdown-container h2 {
+    border: 0;
+}
+
+/* @======================== root layout */
+.root {
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.root header {
+    width: 100%;
+    /* height: 65px; */
+}
+.root section {
+    width: 100%;
+    padding: 2rem 0;
+    flex: 1;
+}
+.root footer {
+    padding: 1.5rem 0;
+    width: 100%;
+    /* height: 65px; */
+}
+/* @==================== template */
+
+header .container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+header nav li {
+    list-style: none;
+    font-weight: 100;
+}
+
+footer .container {
+    text-align: center;
+}
+footer .sns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+}
+footer .sns .icon {
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: #333;
+}
+footer .copy {
+    color: #8c91a3;
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+
+/* @================= page tags */
+.tag-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.tag {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #efefef;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+/* @========= page tagBoard */
+.tag-board .main-title {
+    margin: 0;
+    padding-bottom: 2rem;
+    font-weight: 200;
+    font-size: 2rem;
+    text-align: center;
+}
+.tag-board .container {
+    padding: 0 10rem;
+}
+.tag-board a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+.tag-board .board {
+    border-bottom: 1px solid #eee;
+}
+.tag-board .board:last-child {
+    border-bottom: 0;
+}
+.tag-board .board .title {
+    border: 0;
+}
+.tag-board .board .description {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+.tag-board .board .create-by {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+.tag-board .tag-container {
+    justify-content: flex-start;
+    gap: 0rem;
+}
+.tag-board .date-box {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.tag-board .date-box p {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.tag-board .tag {
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+    color: #3eaf7c;
+}
+.tag-board .tag-box {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* @========== icon */
+.icon.date {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.8;
+}
+
+/* @=============== comment */
+.comment-container {
+    padding-top: 5rem;
+}
+.comment-container .utterances {
+    max-width: unset;
+}

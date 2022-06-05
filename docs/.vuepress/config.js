@@ -1,74 +1,43 @@
-const sidebar = require('./sidebar.js');
-const path = require('path');
-const { description } = require('../../package');
+const path = require("path");
+const sidebar = require("./sidebar");
 
+const resolveAlias = Object.fromEntries(
+    Object.entries({
+        "@": "./",
+        "@store": "./store",
+        "@views": "./views",
+        "@com": "./components",
+        "@css": "./css",
+        "@images": "./images",
+    }).map(([key, value]) => [key, path.resolve(__dirname, value)])
+);
 
 module.exports = {
-  title: 'Today I Learned',
-  base:'/TIL/',
-  description: description,
-  head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
-  ],
-  themeConfig:{
-    displayAllHeaders:true,
-    sidebar
-  },
-  plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-    'vuepress-plugin-smooth-scroll',
-    [
-      'vuepress-plugin-clean-urls',
-      {
-        normalSuffix: '/',
-        indexSuffix: '/',
-        notFoundPath: '/404.html',
-      },
+    base: "til",
+    title: "Vuepress Docs Boilerplate",
+    description: "HI",
+    head: [
+        ["meta", { name: "theme-color", content: "#3eaf7c" }],
+        ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+        [
+            "meta",
+            { name: "apple-mobile-web-app-status-bar-style", content: "black" },
+        ],
     ],
-    ['vuepress-plugin-container', {
-        type: 'tip',
-        defaultTitle: {
-          '/': 'TIP',
-          '/zh/': '提示'
-        }
-      }],
-      ['vuepress-plugin-container', {
-        type: 'warning',
-        defaultTitle: {
-          '/': 'WARNING',
-          '/zh/': '注意'
-        }
-      }],
-      ['vuepress-plugin-container', {
-        type: 'danger',
-        defaultTitle: {
-          '/': 'DANGER',
-          '/zh/': '警告'
-        }
-      }],
-      ['vuepress-plugin-container', {
-        type: 'details',
-        before: info => `<details class="custom-block details">${info ? `<summary>${info}</summary>` : ''}\n`,
-        after: () => '</details>\n'
-      }],
-  ],
-  configureWebpack:{
-    module:{
-      rules:[
-        {
-          test:/\.mon$/,
-          use:['style-loader','css-loader','sass-loader']
-        }
-      ]
+    themeConfig: {
+        sidebar,
     },
-    resolve:{
-      alias:{
-        '@':path.join(__dirname),
-        '@image': path.join(__dirname,'./public')
-      }
-    }
-  }
-}
+    markdown: {
+        anchor: {
+            permalink: false,
+            permalinkBefore: false,
+        },
+        pageSuffix: "/",
+    },
+    configureWebpack: {
+        resolve: {
+            alias: resolveAlias,
+        },
+    },
+    plugins: ["@vuepress/plugin-back-to-top", "@vuepress/plugin-medium-zoom"],
+};

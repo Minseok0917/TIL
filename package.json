@@ -1,29 +1,24 @@
 {
-  "name": "TIL",
-  "version": "0.0.1",
-  "description": "Today I Learn",
-  "main": "index.js",
-  "authors": {
-    "name": "",
-    "email": ""
-  },
-  "repository": "/TIL",
-  "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@goy/vuepress-plugin-svg-icons": "^4.2.3",
-    "node-sass": "^6.0.1",
-    "sass-loader": "^10.2.1",
-    "vuepress": "^1.5.3",
-    "vuepress-plugin-clean-urls": "^1.1.2",
-    "vuepress-plugin-container": "^2.1.5",
-    "vuepress-plugin-smooth-scroll": "^0.0.3",
-    "webpack": "^4.0.0"
-  },
-  "dependencies": {
-    "@vue/composition-api": "^1.4.3"
-  }
+    "name": "TIL",
+    "version": "0.0.1",
+    "description": "Blog",
+    "main": "index.js",
+    "authors": {
+        "name": "",
+        "email": ""
+    },
+    "repository": "/TIL",
+    "scripts": {
+        "dev": "vuepress dev docs",
+        "build": "vuepress build docs"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "vuex": "^3.6.2",
+        "dayjs": "^1.11.2"
+    },
+    "devDependencies": {
+        "vuepress": "^1.5.3",
+        "vuepress-plugin-clean-urls": "^1.1.2",
+    },
 }
