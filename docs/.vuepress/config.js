@@ -13,7 +13,7 @@ const resolveAlias = Object.fromEntries(
 );
 
 module.exports = {
-    base: "TIL",
+    base: "/TIL/",
     title: "Vuepress Docs Boilerplate",
     description: "HI",
     head: [
