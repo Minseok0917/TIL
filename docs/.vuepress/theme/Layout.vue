@@ -19,11 +19,6 @@ export default {
         fullPath() {
             return this.$route.fullPath;
         },
-    },
-    mounted() {
-        console.log(this.$site.pages);
-        console.log(this.$page);
-        console.log(this.path, this.fullPath);
-    },
+    }
 };
 </script>

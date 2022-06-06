@@ -36,7 +36,6 @@ export default {
             image,
             tags,
         };
-        console.log(this.front);
     },
 };
 </script>

@@ -1,5 +1,14 @@
 <template>
-    <div>
-        <h1>ABOUT</h1>
-    </div>
+    <section>
+        <div class="container">
+            <Board />
+        </div>
+    </section>
 </template>
+<script>
+export default {
+    components: {
+        Board: () => import("@views/Board.vue"),
+    },
+};
+</script>

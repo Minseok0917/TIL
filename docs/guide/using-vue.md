@@ -1,5 +1,6 @@
 ---
-title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet culpa nihil quo, incidunt dolorem id necessitatibus magnam voluptatum nulla dolor illum cum ipsum mollitia. Quas repellat corporis itaque assumenda iusto.
+title: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+description: Quas repellat corporis itaque assumenda iusto.
 image: https://img.huffingtonpost.com/asset/5d71d8743b0000683fd01db6.jpeg?ops=1200_630
 createBy: 2022-06-01
 tags:
