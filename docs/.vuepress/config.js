@@ -12,6 +12,24 @@ const resolveAlias = Object.fromEntries(
     }).map(([key, value]) => [key, path.resolve(__dirname, value)])
 );
 
+const googleAnalyticsId = `G-J622WBV267`;
+const googleAnalytics = [
+    [
+        "script",
+        {
+            async: true,
+            src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`,
+        },
+    ],
+    [
+        "script",
+        {},
+        [
+            `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${googleAnalyticsId}');`,
+        ],
+    ],
+];
+
 module.exports = {
     base: "/TIL/",
     title: "Vuepress Docs Boilerplate",
@@ -23,6 +41,7 @@ module.exports = {
             "meta",
             { name: "apple-mobile-web-app-status-bar-style", content: "black" },
         ],
+        ...googleAnalytics,
     ],
     themeConfig: {
         sidebar,
