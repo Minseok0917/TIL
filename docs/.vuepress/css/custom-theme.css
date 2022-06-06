@@ -131,6 +131,9 @@ footer .copy {
     font-weight: 300;
     font-size: 0.85rem;
 }
+.root section section {
+    padding-bottom: 0;
+}
 
 /* @================= page tags */
 .tag-container {
@@ -154,9 +157,6 @@ footer .copy {
     font-weight: 200;
     font-size: 2rem;
     text-align: center;
-}
-.tag-board .container {
-    padding: 0 10rem;
 }
 .tag-board a {
     color: #2c3e50;
@@ -201,8 +201,11 @@ footer .copy {
 }
 .tag-board .tag-box {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.3rem;
+}
+.tag-board .tag-box img {
+    height: 24px;
 }
 
 /* @========== icon */
@@ -218,4 +221,62 @@ footer .copy {
 }
 .comment-container .utterances {
     max-width: unset;
+}
+
+@media (max-width: 1400px) {
+    .container {
+        width: 85%;
+    }
+}
+@media (max-width: 900px) {
+    .markdown-container {
+        padding: 0;
+    }
+}
+@media (max-width: 800px) {
+    .tag-container {
+        gap: 0.5rem;
+    }
+    .tag-board .date-box {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    .tag-board .date-box p {
+        margin: 0;
+        gap: 0.75rem;
+    }
+    .tag-board .tag-box {
+        padding-bottom: 0.5rem;
+    }
+    .tag-board .board .title {
+        font-size: 1.25rem;
+    }
+    .markdown-container h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .markdown-container h2 {
+        font-size: 1.25rem;
+    }
+    .markdown-container {
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 500px) {
+    header nav li {
+        font-size: 0.75rem;
+    }
+    .markdown-container h1 {
+        font-size: 1.5rem;
+    }
+    .tag-board .board .description {
+        font-size: 0.75rem;
+    }
+    .tag-board .tag {
+        font-size: 0.75rem;
+    }
 }
