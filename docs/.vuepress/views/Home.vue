@@ -46,7 +46,7 @@ export default {
         count: 0,
         limit: 10,
     }),
-    created() {
+    mounted() {
         window.addEventListener("scroll", this.onscroll);
         const pages = this.$store.getters["page/pages"];
         this.allPages = pages
