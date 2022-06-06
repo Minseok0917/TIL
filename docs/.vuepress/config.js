@@ -58,5 +58,9 @@ module.exports = {
             alias: resolveAlias,
         },
     },
-    plugins: ["@vuepress/plugin-back-to-top", "@vuepress/plugin-medium-zoom"],
+    plugins: [
+        "@vuepress/plugin-back-to-top",
+        "@vuepress/plugin-medium-zoom",
+        ["sitemap", { hostname: "https://minseok0917.github.io/TIL/" }],
+    ],
 };
