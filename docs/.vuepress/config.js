@@ -32,8 +32,8 @@ const googleAnalytics = [
 
 module.exports = {
     base: "/TIL/",
-    title: "Vuepress Docs Boilerplate",
-    description: "HI",
+    title: "FE 개발자 정민석입니다",
+    description: "민석의 개발 블로그",
     head: [
         ["meta", { name: "theme-color", content: "#3eaf7c" }],
         ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
