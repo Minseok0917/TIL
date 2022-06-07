@@ -17,7 +17,7 @@
                                 :src="require('@images/time-outline.svg')"
                                 alt=""
                             />
-                            {{ changeDate(page.frontmatter.createBy) }} 
+                            {{ changeDate(page.frontmatter.createBy) }}
                         </p>
                         <div class="tag-box">
                             <img
@@ -41,20 +41,23 @@
     </section>
 </template>
 <script>
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 export default {
     props: ["tag"],
     data: () => ({
         pages: [],
     }),
     async created() {
-        this.pages = await this.$store.dispatch("page/findTagPages", this.tag);
-        console.log(this.pages);
+        const pages = await this.$store.dispatch("page/findTagPages", this.tag);
+        this.pages = pages.sort(
+            (a, b) =>
+                dayjs(b.frontmatter.createBy) - dayjs(a.frontmatter.createBy)
+        );
     },
     methods: {
         changeDate(date) {
-            return dayjs(date).format("YYYY년 MM월 DD일")
-        }
-    }
+            return dayjs(date).format("YYYY년 MM월 DD일");
+        },
+    },
 };
 </script>

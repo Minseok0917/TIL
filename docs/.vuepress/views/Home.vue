@@ -56,6 +56,7 @@ export default {
                     dayjs(b.frontmatter.createBy) -
                     dayjs(a.frontmatter.createBy)
             );
+        console.log(this.allPages);
         this.addPage();
     },
     methods: {
@@ -69,12 +70,13 @@ export default {
             const isAdd = (count + 1) * limit < allPages.length;
             if (by >= dheight && isAdd) {
                 this.count += 1;
+                console.log(this.count);
                 this.addPage();
             }
         },
         addPage() {
             const { count, limit, allPages } = this;
-            const pages = allPages.slice(count, limit);
+            const pages = allPages.slice(count * limit, count * limit + limit);
             this.currentPages = [...this.currentPages, ...pages];
         },
     },

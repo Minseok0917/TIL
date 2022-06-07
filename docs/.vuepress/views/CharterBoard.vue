@@ -41,23 +41,26 @@
     </section>
 </template>
 <script>
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 export default {
     props: ["charter"],
     data: () => ({
         pages: [],
     }),
     async created() {
-        this.pages = await this.$store.dispatch(
+        const pages = await this.$store.dispatch(
             "page/findCharterPages",
             this.charter
         );
-        
+        this.pages = pages.sort(
+            (a, b) =>
+                dayjs(b.frontmatter.createBy) - dayjs(a.frontmatter.createBy)
+        );
     },
     methods: {
         changeDate(date) {
-            return dayjs(date).format("YYYY년 MM월 DD일")
-        }
-    }
+            return dayjs(date).format("YYYY년 MM월 DD일");
+        },
+    },
 };
 </script>
