@@ -142,7 +142,7 @@ footer .copy {
     flex-wrap: wrap;
     gap: 1rem;
 }
-.tag {
+.tag-container .tag {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     background-color: #efefef;
