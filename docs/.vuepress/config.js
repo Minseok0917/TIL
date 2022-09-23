@@ -42,6 +42,7 @@ module.exports = {
             { name: "apple-mobile-web-app-status-bar-style", content: "black" },
         ],
         ...googleAnalytics,
+        ["meta",{ name:"google-site-verification", content:"D4dsWfk7Vn6OBcGNsX1OAbaWJmeVCchQvSawCFRJPo0" }],
     ],
     themeConfig: {
         sidebar,
