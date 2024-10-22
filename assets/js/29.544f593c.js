@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[29],{265:function(t,s,o){"use strict";o.r(s);var n=o(14),i=Object(n.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("h2",{attrs:{id:"todo"}},[this._v("Todo")]),this._v(" "),t("p",[this._v("간단한 드래그 기능 구현")])])}),[],!1,null,null,null);s.default=i.exports}}]);
